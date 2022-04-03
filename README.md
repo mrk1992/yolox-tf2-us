@@ -29,7 +29,7 @@
 - [x] SimOTA: Dynamically match positive samples for targets of different sizes.
 
 ## Environment
-tensorflow-gpu==2.2.0  
+tensorflow-gpu==2.5.0  
 
 ## TricksSet
 Under the train.py file:
