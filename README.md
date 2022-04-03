@@ -1,5 +1,6 @@
 ## YOLOX：You Only Look Once Implementation of target detection model in Tensorflow2
 ---
+This project has been modified in English version of China, https://github.com/mrk1992/yolox-tf2.
 
 ## Content
 1. [Performance](#performance)
@@ -27,8 +28,12 @@
 - [x] Anchor Free: don't use a priori box
 - [x] SimOTA: Dynamically match positive samples for targets of different sizes.
 
-## Environment
+## Environment for Linux
+~~~
+cuda==11.2
+cudnn==8.2.0
 tensorflow-gpu==2.5.0  
+~~~
 
 ## TricksSet
 Under the train.py file:
