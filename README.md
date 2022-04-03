@@ -6,11 +6,10 @@
 2. [Achievement](#achievement)
 3. [Environment](#environment)
 4. [TricksSet](#tricksset)
-5. [Download](#download)
-6. [How2train](#how2train)
-7. [How2predict](#how2predict)
-8. [How2eval](#how2eval)
-9. [Reference](#reference)
+5. [How2train](#how2train)
+6. [How2predict](#how2predict)
+7. [How2eval](#how2eval)
+8. [Reference](#reference)
 
 ## Performance
 | training dataset | weight file name | testing dataset | input image size | mAP 0.5:0.95 | mAP 0.5 |
@@ -35,15 +34,6 @@ tensorflow-gpu==2.5.0
 Under the train.py file:
 1. The mosaic parameter can be used to control whether to implement Mosaic data enhancement.
 2. Cosine_scheduler can be used to control whether to use learning rate cosine annealing decay.
-
-## Download
-The weights required for training can be downloaded from Baidu Netdisk.
-Link: https://pan.baidu.com/s/1t6wgcSP85do1Y4lqVCVDMw
-Extraction code: m25d
-
-The download address of the VOC data set is as follows, which already includes the training set, test set, and validation set (same as the test set), no need to divide again:
-Link: https://pan.baidu.com/s/1YuBbBKxm2FGgTU5OfaeC5A
-Extraction code: uack
 
 ## How2train
 ### a. Training VOC07+12 dataset
