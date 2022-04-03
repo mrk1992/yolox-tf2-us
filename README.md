@@ -36,7 +36,7 @@ tensorflow-gpu==2.5.0
 ~~~
 
 ## TricksSet
-Under the train.py file:
+Under the `train.py` file:
 1. The mosaic parameter can be used to control whether to implement Mosaic data enhancement.
 2. Cosine_scheduler can be used to control whether to use learning rate cosine annealing decay.
 
@@ -46,16 +46,16 @@ Under the train.py file:
 **This article uses VOC format for training. Before training, you need to download the VOC07+12 data set, decompress it and put it in the root directory**
 
 2. Processing of datasets  
-Modify annotation_mode=2 in voc_annotation.py, and run voc_annotation.py to generate 2007_train.txt and 2007_val.txt in the root directory.
+Modify annotation_mode=2 in `voc_annotation.py`, and run `voc_annotation.py` to generate 2007_train.txt and 2007_val.txt in the root directory.
 
 3. Start network training  
-The default parameters of train.py are used to train the VOC dataset, and the training can be started directly by running train.py.
+The default parameters of `train.py` are used to train the VOC dataset, and the training can be started directly by running `train.py`.
 
 4. Prediction of training results  
-Training result prediction requires two files, yolo.py and predict.py. We first need to go to yolo.py to modify model_path and classes_path, these two parameters must be modified.
+Training result prediction requires two files, `yolo.py` and `predict.py`. We first need to go to `yolo.py` to modify model_path and classes_path, these two parameters must be modified.
 **model_path points to the trained weights file in the logs folder.
 classes_path points to the txt corresponding to the detection category.**
-After completing the modification, you can run predict.py for detection. After running, enter the image path to detect. 
+After completing the modification, you can run `predict.py` for detection. After running, enter the image path to detect. 
 
 ### b. Train your own dataset
 1. Dataset Preparation  
@@ -64,8 +64,8 @@ Before training, put the label file in the Annotation under the VOC2007 folder u
 Before training, put the image files in JPEGImages under the VOC2007 folder under the VOCdevkit folder.
 
 2. Processing of datasets  
-After completing the placement of the dataset, we need to use voc_annotation.py to get 2007_train.txt and 2007_val.txt for training.
-Modify the parameters in voc_annotation.py. For the first training, only classes_path can be modified, and classes_path is used to point to the txt corresponding to the detected category.
+After completing the placement of the dataset, we need to use `voc_annotation.py` to get 2007_train.txt and 2007_val.txt for training.
+Modify the parameters in `voc_annotation.py`. For the first training, only classes_path can be modified, and classes_path is used to point to the txt corresponding to the detected category.
 When training your own data set, you can create a cls_classes.txt by yourself, and write the categories you need to distinguish in it.
 The content of the model_data/cls_classes.txt file is:
 ````python
@@ -73,29 +73,29 @@ cat
 dog
 ...
 ````
-Modify the classes_path in voc_annotation.py to correspond to cls_classes.txt, and run voc_annotation.py.
+Modify the classes_path in `voc_annotation.py` to correspond to cls_classes.txt, and run `voc_annotation.py`.
 
 3. Start network training  
-**There are many parameters for training, which are all in train.py. You can read the comments carefully after downloading the library. The most important part is still the classes_path in train.py.**
-**classes_path is used to point to the txt corresponding to the detection category, which is the same as the txt in voc_annotation.py! Training your own dataset must be modified!**
-After modifying the classes_path, you can run train.py to start training. After training multiple epochs, the weights will be generated in the logs folder.
+**There are many parameters for training, which are all in `train.py`. You can read the comments carefully after downloading the library. The most important part is still the classes_path in `train.py`.**
+**classes_path is used to point to the txt corresponding to the detection category, which is the same as the txt in `voc_annotation.py`! Training your own dataset must be modified!**
+After modifying the classes_path, you can run `train.py` to start training. After training multiple epochs, the weights will be generated in the logs folder.
 
 4. Prediction of training results  
-Training result prediction requires two files, yolo.py and predict.py. Modify model_path and classes_path in yolo.py.
+Training result prediction requires two files, `yolo.py` and `predict.py`. Modify model_path and classes_path in `yolo.py`.
 **model_path points to the trained weights file in the logs folder.
 classes_path points to the txt corresponding to the detection category.**
-After completing the modification, you can run predict.py for detection. After running, enter the image path to detect.
+After completing the modification, you can run `predict.py` for detection. After running, enter the image path to detect.
 
 ## How2predict
 ### a. Use pre-trained weights
-1. After downloading the library, unzip it, download yolo_weights.pth on Baidu network disk, put it in model_data, run predict.py, enter
+1. After downloading the library, unzip it, download yolo_weights.pth on Baidu network disk, put it in model_data, run `predict.py`, enter
 ````python
 img/street.jpg
 ````
-2. Set in predict.py to perform fps test and video video detection.
+2. Set in `predict.py` to perform fps test and video video detection.
 ### b. Use the weights trained by yourself
 1. Follow the training steps to train.
-2. In the yolo.py file, modify the model_path and classes_path in the following sections to correspond to the trained files; **model_path corresponds to the weight file under the logs folder, and classes_path is the class corresponding to model_path**.
+2. In the `yolo.py` file, modify the model_path and classes_path in the following sections to correspond to the trained files; **model_path corresponds to the weight file under the logs folder, and classes_path is the class corresponding to model_path**.
 ```python
 _defaults = {
     #--------------------------------------------------------------------------#
@@ -132,24 +132,24 @@ _defaults = {
     "letterbox_image"   : True,
 }
 ```
-3. Run predict.py and enter
+3. Run `predict.py` and enter
 ````python
 img/street.jpg
 ````
-4. Setting in predict.py can perform fps test and video video detection.
+4. Setting in `predict.py` can perform fps test and video video detection.
 
 ## How2eval
 ### a. Test set for evaluating VOC07+12
-1. This paper uses the VOC format for evaluation. VOC07+12 has already divided the test set, there is no need to use voc_annotation.py to generate the txt under the ImageSets folder.
-2. Modify model_path and classes_path in yolo.py. **model_path points to the trained weights file in the logs folder. classes_path points to the txt corresponding to the detection category.**
-3. Run get_map.py to get the evaluation result, which will be saved in the map_out folder.
+1. This paper uses the VOC format for evaluation. VOC07+12 has already divided the test set, there is no need to use `voc_annotation.py` to generate the txt under the ImageSets folder.
+2. Modify model_path and classes_path in `yolo.py`. **model_path points to the trained weights file in the logs folder. classes_path points to the txt corresponding to the detection category.**
+3. Run `get_map.py` to get the evaluation result, which will be saved in the map_out folder.
 
 ### b. Evaluate your own dataset
 1. This paper uses the VOC format for evaluation.
-2. If the voc_annotation.py file has been run before training, the code will automatically divide the data set into training set, validation set and test set. If you want to modify the proportion of the test set, you can modify the trainval_percent in the voc_annotation.py file. trainval_percent is used to specify the ratio of (training set + validation set) to test set, by default (training set + validation set): test set = 9:1. train_percent is used to specify the ratio of training set to validation set in (training set + validation set), by default training set:validation set = 9:1.
-3. After dividing the test set with voc_annotation.py, go to the get_map.py file to modify the classes_path. The classes_path is used to point to the txt corresponding to the detection category. This txt is the same as the txt during training. Evaluating your own datasets must be modified.
-4. Modify model_path and classes_path in yolo.py. **model_path points to the trained weights file in the logs folder. classes_path points to the txt corresponding to the detection category.**
-5. Run get_map.py to get the evaluation result, which will be saved in the map_out folder.
+2. If the `voc_annotation.py` file has been run before training, the code will automatically divide the data set into training set, validation set and test set. If you want to modify the proportion of the test set, you can modify the trainval_percent in the `voc_annotation.py` file. trainval_percent is used to specify the ratio of (training set + validation set) to test set, by default (training set + validation set): test set = 9:1. train_percent is used to specify the ratio of training set to validation set in (training set + validation set), by default training set:validation set = 9:1.
+3. After dividing the test set with `voc_annotation.py`, go to the `get_map.py` file to modify the classes_path. The classes_path is used to point to the txt corresponding to the detection category. This txt is the same as the txt during training. Evaluating your own datasets must be modified.
+4. Modify model_path and classes_path in `yolo.py`. **model_path points to the trained weights file in the logs folder. classes_path points to the txt corresponding to the detection category.**
+5. Run `get_map.py` to get the evaluation result, which will be saved in the map_out folder.
 
 ## Reference
 https://github.com/Megvii-BaseDetection/YOLOX
