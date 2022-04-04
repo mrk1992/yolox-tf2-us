@@ -33,6 +33,7 @@ This project has been modified in English version of China, https://github.com/m
 cuda==11.2
 cudnn==8.2.0
 tensorflow-gpu==2.5.0  
+conda==4.12.0
 ~~~
 
 ## TricksSet
