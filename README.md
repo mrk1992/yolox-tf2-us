@@ -28,8 +28,9 @@ This project has been modified in English version of China, https://github.com/m
 - [x] Anchor Free: don't use a priori box
 - [x] SimOTA: Dynamically match positive samples for targets of different sizes.
 
-## Environment for Linux
+## Environment
 ~~~
+ubuntu 18.04
 cuda==11.2
 cudnn==8.2.0
 tensorflow-gpu==2.5.0  
