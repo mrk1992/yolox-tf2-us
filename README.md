@@ -1,6 +1,6 @@
 ## YOLOX：You Only Look Once Implementation of target detection model in Tensorflow2
 ---
-This project has been modified in English version of China, https://github.com/mrk1992/yolox-tf2.
+This project has been modified in English version of China, https://github.com/bubbliiiing/yolox-tf2.
 
 ## Content
 1. [Performance](#performance)
